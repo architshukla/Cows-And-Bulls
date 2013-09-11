@@ -14,7 +14,8 @@ def checker(word,guess):
     cbresult=str(bullscount)+'B'+str(cowscount)+'C'
     return cbresult
 
-print checker('word','mine')
-print checker('word','lord')
-print checker('word','road')
-print checker('rape','pear')
+if __name__ == '__main__':
+    print checker('word','mine')
+    print checker('word','lord')
+    print checker('word','road')
+    print checker('rape','pear')

@@ -6,5 +6,6 @@ def randomword():
     wordlistlength = len(wordlist)
     randnum = randrange(0,wordlistlength)
     return wordlist[randnum]
-    
-print randomword()
+
+if __name__ == '__main__':
+	print randomword()
