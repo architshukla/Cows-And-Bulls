@@ -4,9 +4,13 @@
 # to be used in cows-and-bulls
 # Author: Shashank S Rao
 
+import os
+
+__location__ = os.path.realpath(os.path.join(os.getcwd(),os.path.dirname(__file__)))
+
 def check(guess):
   try:
-    f = open("4letterwords.txt","r")
+    f = open(os.path.join(__location__,"4letterwords.txt"),"r")
   except:
     import sys
     print "Unable to find dictionary"
