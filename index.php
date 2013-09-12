@@ -38,7 +38,10 @@
 
 	function validateSignUp()
 	{
-		var username = document.getElementById('signUpUsername').value;
+		document.getElementById('signInErrorDiv').style.display="none";
+    document.getElementById('signUpErrorDiv').style.display="none";
+
+    var username = document.getElementById('signUpUsername').value;
 		var pass1 = document.getElementById('signUpPass1').value;
 		var pass2 = document.getElementById('signUpPass2').value;
 		if(username == "" || pass1 == "" || pass2 == "")
@@ -48,7 +51,8 @@
 		}
 		if(pass1 != pass2)
 		{
-			alert('Passwords don\'t match.');
+			document.getElementById('signUpErrorMessage').innerHTML='Entered passwords don\'t match.';
+      document.getElementById('signUpErrorDiv').style.display="";
 			document.getElementById('signUpPass1').value="";
 			document.getElementById('signUpPass2').value="";
 			return false;
@@ -60,13 +64,21 @@
 			if(data == 'success')
 				window.location = 'options.php';
 			else
-				alert('Registration failed.\n'+data);
+      {
+				document.getElementById('signUpErrorMessage').innerHTML='Registration failed.'+data;
+        document.getElementById('signUpErrorDiv').style.display="";
+        document.getElementById('signUpPass1').value="";
+        document.getElementById('signUpPass2').value="";
+      }
 		});
 	}
 
 	function validateSignIn()
 	{
-		var username = document.getElementById('signInUsername').value;
+		document.getElementById('signInErrorDiv').style.display="none";
+    document.getElementById('signUpErrorDiv').style.display="none";
+
+    var username = document.getElementById('signInUsername').value;
 		var pass = document.getElementById('signInPassword').value;
 		if(username == "" || pass == "")
 		{
@@ -80,11 +92,17 @@
 				window.location = 'options.php';
 			else
 			{
-				alert('Login failed.\n'+data);
+				document.getElementById('signInErrorMessage').innerHTML='Login failed.'+data;
+        document.getElementById('signInErrorDiv').style.display="";
 				document.getElementById('signInPassword').value="";
 			}
 		});
 	}
+
+  function hideAlert(id)
+  {
+    document.getElementById(id).style.display="none";
+  }
 	</script>
 </head>
 <body>
@@ -185,10 +203,17 @@
           			<input type="password" id='signInPassword' class="form-control" placeholder='Enter Your Password'>
           			<br>
           			<input type="button" class='btn btn-success' value='Log In!' onclick="validateSignIn()">
-          			<input type="reset" class='btn btn-default' value='Clear'>
+          			<input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("signInErrorDiv")'>
           		</form>
+              <div id='signInErrorDiv' style='display:none;'>
+              <br><br>
+                <div class="alert alert-danger">
+                  <strong>Opps!</strong> <p id='signInErrorMessage'>Sign In failed.</p>
+                </div>
+              </div>
         	</div>
         	<div class="modal-footer">
+             
           		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         	</div>
       	</div>
@@ -212,8 +237,14 @@
           			<input type="password" id='signUpPass2' class="form-control" placeholder='Re-enter Password'>
           			<br>
           			<input type="button" class='btn btn-info' value='Register' onclick='validateSignUp()'>
-          			<input type="reset" class='btn btn-default' value='Clear'>
+          			<input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("signUpErrorDiv")'>
           		</form>
+              <div id='signUpErrorDiv' style='display:none;'>
+              <br><br>
+                <div class="alert alert-danger">
+                  <strong>Opps!</strong> <p id='signUpErrorMessage'>Sign In failed.</p>
+                </div>
+              </div>
         	</div>
         	<div class="modal-footer">
           		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
