@@ -35,6 +35,56 @@
 	{
 		$('#signUpModal').modal('toggle');
 	}
+
+	function validateSignUp()
+	{
+		var username = document.getElementById('signUpUsername').value;
+		var pass1 = document.getElementById('signUpPass1').value;
+		var pass2 = document.getElementById('signUpPass2').value;
+		if(username == "" || pass1 == "" || pass2 == "")
+		{
+			alert('Fields cannot be left blank.');
+			return false;
+		}
+		if(pass1 != pass2)
+		{
+			alert('Passwords don\'t match.');
+			document.getElementById('signUpPass1').value="";
+			document.getElementById('signUpPass2').value="";
+			return false;
+		}
+
+		$.post("signUp.php", { username: username, password: pass1 })
+		.done(function(data)
+		{	
+			if(data == 'success')
+				window.location = 'options.php';
+			else
+				alert('Registration failed.\n'+data);
+		});
+	}
+
+	function validateSignIn()
+	{
+		var username = document.getElementById('signInUsername').value;
+		var pass = document.getElementById('signInPassword').value;
+		if(username == "" || pass == "")
+		{
+			alert('Fields cannot be left blank.');
+			return false;
+		}
+		$.post("signIn.php", { username: username, password: pass })
+		.done(function(data)
+		{	
+			if(data == 'success')
+				window.location = 'options.php';
+			else
+			{
+				alert('Login failed.\n'+data);
+				document.getElementById('signInPassword').value="";
+			}
+		});
+	}
 	</script>
 </head>
 <body>
@@ -59,9 +109,12 @@
               	<ul class="nav navbar-nav">
                 	<li class="active"><a href="index.php">Home</a></li>
                 	<li><a href="#aboutModal" data-toggle="modal">About</a></li>
+                	<li><a href="https://github.com/architshukla/Cows-And-Bulls">Fork Us!</a></li>
               	</ul>
               	<ul class="nav navbar-nav navbar-right">
-              		<button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>&nbsp;
+              		&nbsp;
+              		<button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>
+              		&nbsp;
               		<button class='btn btn-success navbar-btn' onclick="signInModalBringUp()">Sign In</button>
               	</ul>
             	</div>
@@ -80,7 +133,7 @@
   		<!-- Wrapper for slides -->
   		<div class="carousel-inner">
     		<div class="item active" align='center'>
-      			<img src="assets/img/1.jpg" alt="Practice" height="400" width="400">
+      			<img id='carouselImage1' src="assets/img/1.jpg" alt="Practice" height="600" width="545">
       			<div class="carousel-caption">
         		<h2 class='text-primary'><strong>Hone Your Skills!</strong></h2>
         		<h3>Practice against the computer.</h3>
@@ -89,7 +142,7 @@
       			</div>
     		</div>
     		<div class="item" align='center'>
-      			<img src="assets/img/2.jpg" alt="Double1" height="400" width="400">
+      			<img id='carouselImage2' src="assets/img/2.jpg" alt="Double1" height="600" width="545">
       			<div class="carousel-caption">
         		<h2 class='text-primary'><strong>Play With a Friend!</strong></h2>
         		<h3>Challenge your friends to a game.</h3>
@@ -98,7 +151,7 @@
       			</div>
     		</div>
     		<div class="item" align='center'>
-      			<img src="assets/img/3.jpg" alt="Double2" height="400" width="400">
+      			<img id='carouselImage3' src="assets/img/3.jpg" alt="Double2" height="600" width="545">
       			<div class="carousel-caption">
         		<h2 class='text-primary'><strong>Fastest Guesser First!</strong></h2>
         		<h3 >Guess the word in lesser tries than your opponent.</h3>
@@ -116,8 +169,6 @@
     		<span class="icon-next"></span>
   		</a>
 	</div>
-	</div>
-	</div>
 
   <!-- Sign In Modal -->
 	<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -129,10 +180,11 @@
         	</div>
         	<div class="modal-body">
           		<form>
-          			<input type="text" class="form-control" placeholder='Enter Your Username' autofocus>
-          			<input type="password" class="form-control" placeholder='Enter Your Password'>
+          			<input type="text" id='signInUsername' class="form-control" placeholder='Enter Your Username' autofocus>
           			<br>
-          			<input type="button" class='btn btn-success' value='Log In!'>
+          			<input type="password" id='signInPassword' class="form-control" placeholder='Enter Your Password'>
+          			<br>
+          			<input type="button" class='btn btn-success' value='Log In!' onclick="validateSignIn()">
           			<input type="reset" class='btn btn-default' value='Clear'>
           		</form>
         	</div>
@@ -153,11 +205,13 @@
         	</div>
         	<div class="modal-body">
           		<form>
-          			<input type="text" class="form-control" placeholder='Enter A Username' autofocus>
-          			<input type="password" class="form-control" placeholder='Enter A Password'>
-          			<input type="password" class="form-control" placeholder='Re-enter Password'>
+          			<input type="text" id='signUpUsername' class="form-control" placeholder='Enter A Username'>
           			<br>
-          			<input type="button" class='btn btn-info' value='Register'>
+          			<input type="password" id='signUpPass1' class="form-control" placeholder='Enter A Password'>
+          			<br>
+          			<input type="password" id='signUpPass2' class="form-control" placeholder='Re-enter Password'>
+          			<br>
+          			<input type="button" class='btn btn-info' value='Register' onclick='validateSignUp()'>
           			<input type="reset" class='btn btn-default' value='Clear'>
           		</form>
         	</div>
@@ -186,6 +240,8 @@
       	</div>
     	</div>
   	</div>
-
+  	<script>
+  		$('.carousel').carousel({interval: 5000});
+  	</script>
 </body>
 </html>
