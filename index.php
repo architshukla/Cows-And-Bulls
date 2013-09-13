@@ -48,7 +48,8 @@
 		var pass2 = document.getElementById('signUpPass2').value;
 		if(username == "" || pass1 == "" || pass2 == "")
 		{
-			alert('Fields cannot be left blank.');
+			document.getElementById('signUpErrorMessage').innerHTML='Fields cannot be left blank.';
+      document.getElementById('signUpErrorDiv').style.display="";
 			return false;
 		}
 		if(pass1 != pass2)
@@ -88,14 +89,17 @@
 		var pass = document.getElementById('signInPassword').value;
 		if(username == "" || pass == "")
 		{
-			alert('Fields cannot be left blank.');
+			document.getElementById('signInErrorMessage').innerHTML='Fields cannot be left blank.';
+      document.getElementById('signInErrorDiv').style.display="";
 			return false;
 		}
 		$.post("signIn.php", { username: username, password: pass })
 		.done(function(data)
 		{	
 			if(data == 'success')
-				document.getElementById('signUpSuccessDiv').style.display="";
+			{
+        window.location=""; //TODO
+      }
 			else
 			{
 				document.getElementById('signInErrorMessage').innerHTML='Login failed.'+data;
@@ -255,7 +259,7 @@
               <div id='signUpSuccessDiv' style='display:none;'>
                 <br><br>
                 <div  class='alert alert-success' >
-                  <strong>Success!</strong> You have been registered. <a class='alert-link' href=''>Click here</a> to start!
+                  <strong>Success!</strong> You have been registered. <a class='alert-link' href=''>Click here</a> to start! <!-- TODO -->
                 </div>
               </div>
         	</div>
