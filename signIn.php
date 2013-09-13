@@ -17,7 +17,10 @@
 	else
 	{
 		if($hashedPassword == $data['password'])
+		{
+			$_SESSION['username'] == $username;
 			echo "success";
+		}
 		else
 		{
 			echo "<br><b>Invalid Username or Password.</b> Please check the values entered and try again.";

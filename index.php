@@ -309,32 +309,43 @@ function hideAlert(id)
      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
      <h4 class="modal-title">Rate Us!</h4>
    </div>
-   <div class="modal-body">
+   <div class="modal-body" align='center'>
      <form>
-       <table class="table">
+       <table class="table table-bordered table-striped table-hover" style='width:75%;'>
         <tr>
-          <td></td>
-          <td align="center">Stars</td>
-          <td align="center">Ratings</td>
+          <th style='width=34%'></th>
+          <th style='width=33%' align="center">Stars</th>
+          <th style='width=33%' align="center">Ratings</th>
         </tr>
         <!--1 Star -->
         <tr>
-          <td><span class='glyphicon glyphicon-star'></span></td>
+          <td>
+          <a class='btn btn-warning btn-sm'>
+          <span class='glyphicon glyphicon-star'></span>
+          </a>
+          </td>
           <td align="center" >1</td>
           <td align="center"><input type="radio" name="ratings" value="1"></td>
         </tr>
         <!-- 2 Stars -->
         <tr>
-         <td><span class='glyphicon glyphicon-star'></span><span class='glyphicon glyphicon-star'></span></td>
+         <td>
+         <a class='btn btn-warning btn-sm'>
+         <span class='glyphicon glyphicon-star'></span>
+         <span class='glyphicon glyphicon-star'></span>
+         </a>
+         </td>
          <td align="center" >2</td>
          <td align="center"><input type="radio" name="ratings" value="2"></td>
        </tr>
        <!-- 3 Stars -->
        <tr>
         <td>
+        <a class='btn btn-warning btn-sm'>
           <span class='glyphicon glyphicon-star'></span>
           <span class='glyphicon glyphicon-star'></span>
           <span class='glyphicon glyphicon-star'></span>
+          </a>
         </td>
         <td align="center" >3</td>
         <td align="center"><input type="radio" name="ratings" value="3"></td>
@@ -342,10 +353,12 @@ function hideAlert(id)
       <!-- 4 Stars -->
       <tr>
        <td>
+       <a class='btn btn-warning btn-sm'>
         <span class='glyphicon glyphicon-star'></span>
         <span class='glyphicon glyphicon-star'></span>
         <span class='glyphicon glyphicon-star'></span>
         <span class='glyphicon glyphicon-star'></span>
+        </a>
       </td>
        <td align="center" >4</td>
        <td align="center"><input type="radio" name="ratings" value="4"></td>
@@ -353,11 +366,13 @@ function hideAlert(id)
      <!-- 5 Stars -->
      <tr>
        <td>
+       <a class='btn btn-warning btn-sm'>
        <span class='glyphicon glyphicon-star'></span>
        <span class='glyphicon glyphicon-star'></span>
        <span class='glyphicon glyphicon-star'></span>
        <span class='glyphicon glyphicon-star'></span>
        <span class='glyphicon glyphicon-star'></span>
+       </a>
        </td>
        <td align="center" >5</td>
        <td align="center"><input type="radio" name="ratings" value="5"></td>
