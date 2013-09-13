@@ -51,14 +51,17 @@
 	function validateSignUp()
 	{
 		document.getElementById('signInErrorDiv').style.display="none";
+
     document.getElementById('signUpErrorDiv').style.display="none";
+    document.getElementById('signUpSuccessDiv').style.display="none";
 
     var username = document.getElementById('signUpUsername').value;
 		var pass1 = document.getElementById('signUpPass1').value;
 		var pass2 = document.getElementById('signUpPass2').value;
 		if(username == "" || pass1 == "" || pass2 == "")
 		{
-			alert('Fields cannot be left blank.');
+			document.getElementById('signUpErrorMessage').innerHTML='Fields cannot be left blank.';
+      document.getElementById('signUpErrorDiv').style.display="";
 			return false;
 		}
 		if(pass1 != pass2)
@@ -74,7 +77,9 @@
 		.done(function(data)
 		{	
 			if(data == 'success')
-				window.location = 'options.php';
+			{
+        document.getElementById('signUpSuccessDiv').style.display="";
+      }
 			else
       {
 				document.getElementById('signUpErrorMessage').innerHTML='Registration failed.'+data;
@@ -88,20 +93,25 @@
 	function validateSignIn()
 	{
 		document.getElementById('signInErrorDiv').style.display="none";
+
     document.getElementById('signUpErrorDiv').style.display="none";
+    document.getElementById('signUpSuccessDiv').style.display="none";
 
     var username = document.getElementById('signInUsername').value;
 		var pass = document.getElementById('signInPassword').value;
 		if(username == "" || pass == "")
 		{
-			alert('Fields cannot be left blank.');
+			document.getElementById('signInErrorMessage').innerHTML='Fields cannot be left blank.';
+      document.getElementById('signInErrorDiv').style.display="";
 			return false;
 		}
 		$.post("signIn.php", { username: username, password: pass })
 		.done(function(data)
 		{	
 			if(data == 'success')
-				window.location = 'options.php';
+			{
+        window.location=""; //TODO
+      }
 			else
 			{
 				document.getElementById('signInErrorMessage').innerHTML='Login failed.'+data;
@@ -121,7 +131,7 @@
 	<!-- Carousel -->
 	<div id="carousel-example-generic" class="carousel slide">
 		<!-- Navbar -->
-		<span style='margin:20px'></span>
+		
 		<div class="navbar-wrapper">
       	<div class="container">
 	
@@ -255,7 +265,14 @@
               <div id='signUpErrorDiv' style='display:none;'>
               <br><br>
                 <div class="alert alert-danger">
-                  <strong>Opps!</strong> <p id='signUpErrorMessage'>Sign In failed.</p>
+                  <strong>Opps!</strong> <p id='signUpErrorMessage'>Something went wrong!</p>
+                </div>
+              </div>
+              
+              <div id='signUpSuccessDiv' style='display:none;'>
+                <br><br>
+                <div  class='alert alert-success' >
+                  <strong>Success!</strong> You have been registered. <a class='alert-link' href=''>Click here</a> to start! <!-- TODO -->
                 </div>
               </div>
         	</div>
@@ -292,52 +309,51 @@
           	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           	<h4 class="modal-title">Ratings</h4>
         	</div>
-        	<div class="modal-body">
+      <div class="modal-body">
 			<form>
 			<table class="table">
 			<tr>
 			<td colspan="3">
-			<td ><td align="center" >Stars</td><td align="center">Ratings</td>
+			</td ><td align="center" >Stars</td><td align="center">Ratings</td>
 			</tr>
 			<!--1 Star -->
 			<tr>
 			<td colspan="3">
-			<td><span class='glyphicon glyphicon-star'/></td><td align="center" >1</td><td align="center">
-			<input type="radio" name="ratings" value="1"</td>
+			</td><span class='glyphicon glyphicon-star'/></td><td align="center" >1</td><td align="center">
+			<input type="radio" name="ratings" value="1"></td>
 			</tr>
 			<!-- 2 Stars -->
 			<tr>
 			<td colspan="3">
-			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			</td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
 			<td align="center" >2</td><td align="center">
-			<input type="radio" name="ratings" value="2"</td>
+			<input type="radio" name="ratings" value="2"></td>
 			</tr>
 			<!-- 3 Stars -->
 			<tr>
 			<td colspan="3">
-			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			</td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
 			<td align="center" >3</td><td align="center">
-			<input type="radio" name="ratings" value="3"</td>
+			<input type="radio" name="ratings" value="3"></td>
 			</tr>
 			<!-- 4 Stars -->
 			<tr>
 			<td colspan="3">
-			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			</td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
 			<td align="center" >4</td><td align="center">
-			<input type="radio" name="ratings" value="4"</td>
+			<input type="radio" name="ratings" value="4"></td>
 			</tr>
 			<!-- 5 Stars -->
 			<tr>
 			<td colspan="3">
-			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/>
+			</td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/>
 			</td><td align="center" >5</td><td align="center">
-			<input type="radio" name="ratings" value="5"</td>
+			<input type="radio" name="ratings" value="5"></td>
 			</tr>
 			
-			<table>
-			<input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
-          			<input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'>
-          	
+			</table>
+        <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
+        <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'>	
 			</form>
 			<div id='ratingErrorDiv' style='display:none;'>
               <br><br>
@@ -347,12 +363,28 @@
         	<div class="modal-footer">
           		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         	</div>
-      	</div>
-    	</div>
-  	</div>
-
+      </div>
+    </div>
+    
   	<script>
-  		$('.carousel').carousel({interval: 5000});
+  		$('.carousel').carousel({interval: 3000});
+      // document.getElementById('carousel-example-generic').style.width=screen.width+"px";
+      document.getElementById('carousel-example-generic').style.height=screen.height+"px";
+      // var existingHeight = document.getElementById('carouselImage1').height;
+      // var newHeight = window.innerHeight-0.18*window.innerHeight;
+      // var diff = 1 - existingHeight/newHeight;
+
+      // var existingWidth = document.getElementById('carouselImage1').width;
+      // var newWidth = (int)existingWidth + existingWidth*diff;
+
+      // document.getElementById('carouselImage1').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage1').style.width=newWidth+"px";
+
+      // document.getElementById('carouselImage2').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage2').style.width=newWidth+"px";
+
+      // document.getElementById('carouselImage3').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage3').style.width=newWidth+"px";
   	</script>
 </body>
 </html>
