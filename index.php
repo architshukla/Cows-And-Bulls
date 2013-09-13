@@ -39,7 +39,9 @@
 	function validateSignUp()
 	{
 		document.getElementById('signInErrorDiv').style.display="none";
+
     document.getElementById('signUpErrorDiv').style.display="none";
+    document.getElementById('signUpSuccessDiv').style.display="none";
 
     var username = document.getElementById('signUpUsername').value;
 		var pass1 = document.getElementById('signUpPass1').value;
@@ -62,7 +64,9 @@
 		.done(function(data)
 		{	
 			if(data == 'success')
-				window.location = 'options.php';
+			{
+        document.getElementById('signUpSuccessDiv').style.display="";
+      }
 			else
       {
 				document.getElementById('signUpErrorMessage').innerHTML='Registration failed.'+data;
@@ -76,7 +80,9 @@
 	function validateSignIn()
 	{
 		document.getElementById('signInErrorDiv').style.display="none";
+
     document.getElementById('signUpErrorDiv').style.display="none";
+    document.getElementById('signUpSuccessDiv').style.display="none";
 
     var username = document.getElementById('signInUsername').value;
 		var pass = document.getElementById('signInPassword').value;
@@ -89,7 +95,7 @@
 		.done(function(data)
 		{	
 			if(data == 'success')
-				window.location = 'options.php';
+				document.getElementById('signUpSuccessDiv').style.display="";
 			else
 			{
 				document.getElementById('signInErrorMessage').innerHTML='Login failed.'+data;
@@ -109,7 +115,7 @@
 	<!-- Carousel -->
 	<div id="carousel-example-generic" class="carousel slide">
 		<!-- Navbar -->
-		<span style='margin:20px'></span>
+		
 		<div class="navbar-wrapper">
       	<div class="container">
 	
@@ -242,7 +248,14 @@
               <div id='signUpErrorDiv' style='display:none;'>
               <br><br>
                 <div class="alert alert-danger">
-                  <strong>Opps!</strong> <p id='signUpErrorMessage'>Sign In failed.</p>
+                  <strong>Opps!</strong> <p id='signUpErrorMessage'>Something went wrong!</p>
+                </div>
+              </div>
+              
+              <div id='signUpSuccessDiv' style='display:none;'>
+                <br><br>
+                <div  class='alert alert-success' >
+                  <strong>Success!</strong> You have been registered. <a class='alert-link' href=''>Click here</a> to start!
                 </div>
               </div>
         	</div>
@@ -270,9 +283,26 @@
         	</div>
       	</div>
     	</div>
-  	</div>
+  </div>
   	<script>
-  		$('.carousel').carousel({interval: 5000});
+  		$('.carousel').carousel({interval: 3000});
+      // document.getElementById('carousel-example-generic').style.width=screen.width+"px";
+      document.getElementById('carousel-example-generic').style.height=screen.height+"px";
+      // var existingHeight = document.getElementById('carouselImage1').height;
+      // var newHeight = window.innerHeight-0.18*window.innerHeight;
+      // var diff = 1 - existingHeight/newHeight;
+
+      // var existingWidth = document.getElementById('carouselImage1').width;
+      // var newWidth = (int)existingWidth + existingWidth*diff;
+
+      // document.getElementById('carouselImage1').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage1').style.width=newWidth+"px";
+
+      // document.getElementById('carouselImage2').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage2').style.width=newWidth+"px";
+
+      // document.getElementById('carouselImage3').style.height=(window.innerHeight-0.18*window.innerHeight)+"px";
+      // document.getElementById('carouselImage3').style.width=newWidth+"px";
   	</script>
 </body>
 </html>
