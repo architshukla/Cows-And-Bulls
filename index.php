@@ -35,7 +35,19 @@
 	{
 		$('#signUpModal').modal('toggle');
 	}
-
+	function validateRatings()
+	
+	{
+		
+		if(document.getElementById('ratings').checked) {
+  
+		}else 
+		{
+			document.getElementById('ratingErrorMessage').innerHTML='Failed!';
+			
+		}
+	}
+	
 	function validateSignUp()
 	{
 		document.getElementById('signInErrorDiv').style.display="none";
@@ -127,6 +139,7 @@
               	<ul class="nav navbar-nav">
                 	<li class="active"><a href="index.php">Home</a></li>
                 	<li><a href="#aboutModal" data-toggle="modal">About</a></li>
+					<li><a href="#ratingModal" data-toggle="modal">Rate Us!</a></li>
                 	<li><a href="https://github.com/architshukla/Cows-And-Bulls">Fork Us!</a></li>
               	</ul>
               	<ul class="nav navbar-nav navbar-right">
@@ -271,6 +284,73 @@
       	</div>
     	</div>
   	</div>
+	<!--Ratings-->
+	<div class="modal fade" id="ratingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    	<div class="modal-dialog">
+      		<div class="modal-content">
+        	<div class="modal-header">
+          	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          	<h4 class="modal-title">Ratings</h4>
+        	</div>
+        	<div class="modal-body">
+			<form>
+			<table class="table">
+			<tr>
+			<td colspan="3">
+			<td ><td align="center" >Stars</td><td align="center">Ratings</td>
+			</tr>
+			<!--1 Star -->
+			<tr>
+			<td colspan="3">
+			<td><span class='glyphicon glyphicon-star'/></td><td align="center" >1</td><td align="center">
+			<input type="radio" name="ratings" value="1"</td>
+			</tr>
+			<!-- 2 Stars -->
+			<tr>
+			<td colspan="3">
+			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			<td align="center" >2</td><td align="center">
+			<input type="radio" name="ratings" value="2"</td>
+			</tr>
+			<!-- 3 Stars -->
+			<tr>
+			<td colspan="3">
+			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			<td align="center" >3</td><td align="center">
+			<input type="radio" name="ratings" value="3"</td>
+			</tr>
+			<!-- 4 Stars -->
+			<tr>
+			<td colspan="3">
+			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/></td>
+			<td align="center" >4</td><td align="center">
+			<input type="radio" name="ratings" value="4"</td>
+			</tr>
+			<!-- 5 Stars -->
+			<tr>
+			<td colspan="3">
+			<td><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/><span class='glyphicon glyphicon-star'/>
+			</td><td align="center" >5</td><td align="center">
+			<input type="radio" name="ratings" value="5"</td>
+			</tr>
+			
+			<table>
+			<input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
+          			<input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'>
+          	
+			</form>
+			<div id='ratingErrorDiv' style='display:none;'>
+              <br><br>
+                <div class="alert alert-danger">
+                  <strong>Oops!</strong> <p id='ratingErrorMessage'>Please Rate!</p>
+                </div>
+        	<div class="modal-footer">
+          		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        	</div>
+      	</div>
+    	</div>
+  	</div>
+
   	<script>
   		$('.carousel').carousel({interval: 5000});
   	</script>
