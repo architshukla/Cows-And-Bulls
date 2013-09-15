@@ -18,7 +18,7 @@
 	{
 		if($hashedPassword == $data['password'])
 		{
-			$_SESSION['username'] == $username;
+			$_SESSION['username'] = $username;
 			echo "success";
 		}
 		else
