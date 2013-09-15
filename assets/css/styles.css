@@ -1,0 +1,17 @@
+  <style>
+		input:focus 
+		{
+      outline:0px !important;
+      -webkit-appearance:none;
+    }
+    a:focus 
+    {
+      outline:0px !important;
+      -webkit-appearance:none;
+    }
+    button:focus 
+    {
+      outline:0px !important;
+      -webkit-appearance:none;
+    }
+  </style>
