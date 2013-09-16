@@ -8,15 +8,66 @@
   {
     $('#signUpModal').modal('toggle');
   }
+  function clearRatings()
+  {
+  
+	document.getElementById("1").checked = false;
+   document.getElementById("2").checked = false;
+   document.getElementById("3").checked = false;
+   document.getElementById("4").checked = false;
+   document.getElementById("5").checked = false;
+   document.getElementById('feedback').value="";
+  }
   function validateRatings()
 
   {
-
-    if(document.getElementById('ratings').checked) {
-
+	var flag=0;
+	for(var i=1;i<=5;i++)
+		{
+			if(document.getElementById(i.toString()).checked)
+				{
+					flag=1;
+					break;
+				}
+			
+		}
+	if(flag==1)
+     {
+	 document.getElementById('ratingErrorDiv').style.display="";
+	 //var feedback = document.getElementById('feedback');
+	 var feedback = document.getElementById('feedback').value;
+	 var ratings=i.toString();
+	//document.getElementById('ratingErrorMessage').innerHTML=i.toString()+feedback;
+	$.post("recordFeedback.php", { ratings: ratings, feedback: feedback })
+	.done(function(data)
+ {	
+   if(data == 'success')
+   {
+	document.getElementById("1").checked = false;
+   document.getElementById("2").checked = false;
+   document.getElementById("3").checked = false;
+   document.getElementById("4").checked = false;
+   document.getElementById("5").checked = false;
+   document.getElementById('feedback').value="";
+    document.getElementById('ratingErrorDiv').style.display="";
+	document.getElementById('ratingErrorMessage').innerHTML='Success.'
+  }
+  else
+  {
+    document.getElementById('ratingErrorMessage').innerHTML='Ratings failed.'+data;
+    document.getElementById('ratingErrorDiv').style.display="";
+   document.getElementById("1").checked = false;
+   document.getElementById("2").checked = false;
+   document.getElementById("3").checked = false;
+   document.getElementById("4").checked = false;
+   document.getElementById("5").checked = false;
+   document.getElementById('feedback').value="";
+  }
+});
     }else 
     {
-     document.getElementById('ratingErrorMessage').innerHTML='Failed!';
+	 document.getElementById('ratingErrorDiv').style.display="";
+      //document.getElementById('ratingErrorMessage').innerHTML='Failed!';
 
    }
  }
