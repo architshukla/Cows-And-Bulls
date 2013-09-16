@@ -98,4 +98,10 @@ function hideAlert(id)
 {
   document.getElementById(id).style.display="none";
 }
+
+function shiftFocus(myid, nextId)
+{
+  document.getElementById(nextId).value="";
+  document.getElementById(nextId).focus();
+}
 </script>
