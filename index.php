@@ -1,175 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Cows And Bulls</title>
-	<meta content="text/html; charset=utf-8" http-equiv="content-type" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Bootstrap -->
-	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<style>
-		input:focus 
-		{
-      outline:0px !important;
-      -webkit-appearance:none;
-    }
-    a:focus 
-    {
-      outline:0px !important;
-      -webkit-appearance:none;
-    }
-    button:focus 
-    {
-      outline:0px !important;
-      -webkit-appearance:none;
-    }
-  </style>
-  <script type="text/javascript">
-   function signInModalBringUp()
-   {
-    $('#signInModal').modal('toggle');
-  }
+  <title>Cows And Bulls</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <!-- Custom Styles -->
+  <link href="assets/css/styles.css" rel="stylesheet" media="screen">
+  <!-- Java Script Functions -->
+  <?php  require_once('modules.php') ?>
 
-  function signUpModalBringUp()
-  {
-    $('#signUpModal').modal('toggle');
-  }
-  function validateRatings()
-
-  {
-
-    if(document.getElementById('ratings').checked) {
-
-    }else 
-    {
-     document.getElementById('ratingErrorMessage').innerHTML='Failed!';
-
-   }
- }
-
- function validateSignUp()
- {
-  document.getElementById('signInErrorDiv').style.display="none";
-
-  document.getElementById('signUpErrorDiv').style.display="none";
-  document.getElementById('signUpSuccessDiv').style.display="none";
-
-  var username = document.getElementById('signUpUsername').value;
-  var pass1 = document.getElementById('signUpPass1').value;
-  var pass2 = document.getElementById('signUpPass2').value;
-  if(username == "" || pass1 == "" || pass2 == "")
-  {
-   document.getElementById('signUpErrorMessage').innerHTML='Fields cannot be left blank.';
-   document.getElementById('signUpErrorDiv').style.display="";
-   return false;
- }
- if(pass1 != pass2)
- {
-   document.getElementById('signUpErrorMessage').innerHTML='Entered passwords don\'t match.';
-   document.getElementById('signUpErrorDiv').style.display="";
-   document.getElementById('signUpPass1').value="";
-   document.getElementById('signUpPass2').value="";
-   return false;
- }
-
- $.post("signUp.php", { username: username, password: pass1 })
- .done(function(data)
- {	
-   if(data == 'success')
-   {
-    document.getElementById('signUpSuccessDiv').style.display="";
-  }
-  else
-  {
-    document.getElementById('signUpErrorMessage').innerHTML='Registration failed.'+data;
-    document.getElementById('signUpErrorDiv').style.display="";
-    document.getElementById('signUpPass1').value="";
-    document.getElementById('signUpPass2').value="";
-  }
-});
-}
-
-function validateSignIn()
-{
-  document.getElementById('signInErrorDiv').style.display="none";
-
-  document.getElementById('signUpErrorDiv').style.display="none";
-  document.getElementById('signUpSuccessDiv').style.display="none";
-
-  var username = document.getElementById('signInUsername').value;
-  var pass = document.getElementById('signInPassword').value;
-  if(username == "" || pass == "")
-  {
-   document.getElementById('signInErrorMessage').innerHTML='Fields cannot be left blank.';
-   document.getElementById('signInErrorDiv').style.display="";
-   return false;
- }
- $.post("signIn.php", { username: username, password: pass })
- .done(function(data)
- {	
-   if(data == 'success')
-   {
-        window.location=""; //TODO
-      }
-      else
-      {
-        document.getElementById('signInErrorMessage').innerHTML='Login failed.'+data;
-        document.getElementById('signInErrorDiv').style.display="";
-        document.getElementById('signInPassword').value="";
-      }
-    });
-}
-
-function hideAlert(id)
-{
-  document.getElementById(id).style.display="none";
-}
-</script>
 </head>
 <body>
-	<!-- Carousel -->
-	<div id="carousel-example-generic" class="carousel slide">
-		<!-- Navbar -->
-		
-		<div class="navbar-wrapper">
-     <div class="container">
-
-       <div class="navbar navbar-inverse ">
-         <div class="container">
-           <div class="navbar-header">
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-             </button>
-             <a class="navbar-brand" href="javascript:void(0);">Cows and Bulls</a>
-           </div>
-           <div class="navbar-collapse collapse">
-             <ul class="nav navbar-nav">
-               <li class="active"><a href="index.php">Home</a></li>
-               <li><a href="#aboutModal" data-toggle="modal">About</a></li>
-               <li><a href="#ratingModal" data-toggle="modal">Rate Us!</a></li>
-               <li><a href="https://github.com/architshukla/Cows-And-Bulls">Fork Us!</a></li>
-             </ul>
-             <ul class="nav navbar-nav navbar-right">
-              &nbsp;
-              <button class='btn btn-info navbar-btn' onclick="signUpModalBringUp()">Sign Up!</button>
-              &nbsp;
-              <button class='btn btn-success navbar-btn' onclick="signInModalBringUp()">Sign In</button>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Carousel -->
+  <div id="carousel-example-generic" class="carousel slide">
+    <!-- Navbar -->
+    <?php  require_once('navbar.php') ?>
 
   <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+    <?php  require_once('indicators.php') ?>
+
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
@@ -380,7 +231,7 @@ function hideAlert(id)
 
    </table>
    <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
-   <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'>	
+   <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'> 
  </form>
  <div id='ratingErrorDiv' style='display:none;'>
   <br><br>
@@ -392,6 +243,8 @@ function hideAlert(id)
   </div>
 </div>
 </div>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
 
 <script>
   $('.carousel').carousel({interval: 3000});
