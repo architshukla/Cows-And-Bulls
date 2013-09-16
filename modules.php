@@ -33,7 +33,7 @@
 		}
 	if(flag==1)
      {
-	 document.getElementById('ratingErrorDiv').style.display="";
+	 //document.getElementById('ratingErrorDiv').style.display="";
 	 //var feedback = document.getElementById('feedback');
 	 var feedback = document.getElementById('feedback').value;
 	 var ratings=i.toString();
@@ -49,8 +49,9 @@
    document.getElementById("4").checked = false;
    document.getElementById("5").checked = false;
    document.getElementById('feedback').value="";
-    document.getElementById('ratingErrorDiv').style.display="";
-	document.getElementById('ratingErrorMessage').innerHTML='Success.'
+   
+    document.getElementById('ratingSuccessDiv').style.display="";
+	//document.getElementById('ratingErrorMessage').innerHTML='Success.'
   }
   else
   {
@@ -148,11 +149,5 @@ function validateSignIn()
 function hideAlert(id)
 {
   document.getElementById(id).style.display="none";
-}
-
-function shiftFocus(myid, nextId)
-{
-  document.getElementById(nextId).value="";
-  document.getElementById(nextId).focus();
 }
 </script>

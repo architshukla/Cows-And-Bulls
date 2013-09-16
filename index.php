@@ -239,11 +239,18 @@
    <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
    <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'> 
  </form>
- <div id='ratingErrorDiv' style='display:none;'>
+ <div id='ratingErrorDiv' style='display:none;' align="left">
   <br><br>
   <div class="alert alert-danger">
     <strong>Oops!</strong> <p id='ratingErrorMessage'>Please Rate!</p>
-  </div></div>
+  </div> 
+  </div>
+  <div id='ratingSuccessDiv' style='display:none;' align="left">
+    <br><br>
+    <div  class='alert alert-success' >
+      <strong>Success!</strong> Your ratings and feedback are noted </div>
+ 
+  </div>
   
 </div>
   <script src="assets/js/jquery.js"></script>
