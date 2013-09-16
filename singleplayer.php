@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Single Player</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -21,7 +21,7 @@
         <section>
         <img src="prfpics/ravikiran.jpg" class="img-responsive" alt="Responsive image">
         <br>
-        <p>Ravi Kiran<b>[New Bie]</b></p>
+        <p>Ravi Kiran<b>[Newbie]</b></p>
         </section>
         <ul class="nav">
           <li>Achievments</li>
@@ -35,10 +35,10 @@
     <div class="container-fixed">
     <div class="jumbotron">
       <div class="row">
-        <input type="text" size="1" maxlength="1" name="w1">
-        <input type="text" size="1" maxlength="1" name="w2">
-        <input type="text" size="1" maxlength="1" name="w3">
-        <input type="text" size="1" maxlength="1" name="w4">
+        <input type="text" class="input-small" size="1" maxlength="1" name="w1">
+        <input type="text" class="input-small" size="1" maxlength="1" name="w2">
+        <input type="text" class="input-small" size="1" maxlength="1" name="w3">
+        <input type="text" class="input-small" size="1" maxlength="1" name="w4">
       </div>
       <br>
       <div class="row">
