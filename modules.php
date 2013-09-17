@@ -174,4 +174,15 @@ function processword()
   }
  });
 }
+
+function shiftFocus(myid, nextId)
+{
+  document.getElementById(nextId).value="";
+  document.getElementById(nextId).focus();
+}
+$("#word").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#submitword").click();
+    }
+});
 </script>
