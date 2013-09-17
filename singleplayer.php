@@ -38,7 +38,7 @@
     <div class="col-xs-6 col-sm-3 col-md-9 pull-right">
     <div class="container-fixed">
     <div class="jumbotron">
-      <form class="form-inline" role="form">
+    <form class="form-inline" role="form">
       <div class="row form-inline">
         <input type="text" size="1" class='form-control' style='width:10%;' id='b11' onkeyup='shiftFocus(this, "b12")' maxlength="1" name="w1" autofocus>
         <input type="text" size="1" class='form-control' style='width:10%;' id='b12' onkeyup='shiftFocus(this, "b13")' maxlength="1" name="w2">
