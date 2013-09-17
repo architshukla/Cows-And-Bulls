@@ -1,3 +1,4 @@
+
   <script type="text/javascript">
    function signInModalBringUp()
    {
@@ -94,6 +95,30 @@ function validateSignIn()
     });
 }
 
+function processword()
+{
+  var word = document.getElementById('word').value;
+  if(word == "")
+  {
+   return false;
+ }
+ $.post("executemain.php", { userword: word})
+ .done(function(data)
+ {
+  if(data=="invalid") {
+    document.getElementById('result').innerHTML='Enter a valid word';
+  } else {
+    
+    var result=document.createElement("p");
+    var textnode=document.createTextNode(data);
+    result.appendChild(textnode);
+
+    var element=document.getElementById("resultset");
+    element.appendChild(result);
+
+  }
+ });
+}
 function hideAlert(id)
 {
   document.getElementById(id).style.display="none";
@@ -104,4 +129,9 @@ function shiftFocus(myid, nextId)
   document.getElementById(nextId).value="";
   document.getElementById(nextId).focus();
 }
+$("#word").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#submitword").click();
+    }
+});
 </script>
