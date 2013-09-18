@@ -16,4 +16,4 @@ if __name__ == '__main__':
 	if len(sys.argv)<3:
 		print "python main.py word guess"
 		sys.exit()
-	main(sys.argv[1],sys.argv[2])
+	main(sys.argv[1].lower(),sys.argv[2].lower())

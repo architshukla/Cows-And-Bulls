@@ -143,8 +143,25 @@
      <h4 class="modal-title">About - Cows and Bulls</h4>
    </div>
    <div class="modal-body">
-    <p> Cows and Bulls </p>
-    <!-- TODO -->
+    <div class='well'>
+    <p><strong>Cows and Bulls</strong> is a game where a player guesses a word (usually, a 4-letter word without repeating letters) given by another player. Each word is qualified as follows:</p>
+    <ol>
+      <li> A <strong> "Bull" </strong> is a letter in the guessed word which appears in the same positon as it appears in the original word.</li>
+      <li> A <strong> "Cow" </strong> is a letter in the guessed word which appears in a different posiiton as it appeats in the original word.</li>
+    </ol>
+    <br><p>Proper nouns, abbreviations and acronyms are not allowed.</p>
+    <p>The game continues until the player guesses the word correctly, that is, gets "4 Bulls" on a word. Then the opponent gets to play.</p>
+    </div>
+
+    <h3 class='text-info'>Examples</h3>
+    <div class='well'>
+    <ol>
+      <li> If the original word is <strong>"GAME"</strong>, and the player guesses the word to be <strong>"FAKE"</strong>, the word is said to have <strong>"2 Bulls"</strong> as the letters A and E appear in GAME and FAKE in the same places</li>
+      <li> If the original word is <strong>"GAME"</strong>, and the player guesses the word to be <strong>"HOAX"</strong>, the word is said to have <strong>"1 Cow"</strong> as the letter A appears in both GAME and HOAX but in different places.</li>
+      <li> If the original word is <strong>"GAME"</strong>, and the player guesses the word to be <strong>"EATS"</strong>, the word is said to have <strong>"1 Bull and 1 Cow"</strong> where E is the "Cow" and A is the "Bull".</li>
+    </ol>
+</div>
+
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -157,7 +174,7 @@
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
-     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+     <button type="button" onclick='clearRatings()' class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
      <h4 class="modal-title">Rate Us!</h4>
    </div>
    <div class="modal-body" align='center'>
@@ -176,7 +193,7 @@
           </a>
           </td>
           <td align="center" >1</td>
-          <td align="center"><input type="radio" name="ratings" value="1"></td>
+          <td align="center"><input type="radio" id="1" name="ratings" value="1"></td>
         </tr>
         <!-- 2 Stars -->
         <tr>
@@ -187,7 +204,7 @@
          </a>
          </td>
          <td align="center" >2</td>
-         <td align="center"><input type="radio" name="ratings" value="2"></td>
+         <td align="center"><input type="radio" id="2" name="ratings" value="2"></td>
        </tr>
        <!-- 3 Stars -->
        <tr>
@@ -199,7 +216,7 @@
           </a>
         </td>
         <td align="center" >3</td>
-        <td align="center"><input type="radio" name="ratings" value="3"></td>
+        <td align="center"><input type="radio" id="3" name="ratings" value="3"></td>
       </tr>
       <!-- 4 Stars -->
       <tr>
@@ -212,7 +229,7 @@
         </a>
       </td>
        <td align="center" >4</td>
-       <td align="center"><input type="radio" name="ratings" value="4"></td>
+       <td align="center"><input type="radio" id="4" name="ratings" value="4"></td>
      </tr>
      <!-- 5 Stars -->
      <tr>
@@ -226,22 +243,32 @@
        </a>
        </td>
        <td align="center" >5</td>
-       <td align="center"><input type="radio" name="ratings" value="5"></td>
+       <td align="center"><input type="radio" id="5" name="ratings" value="5"></td>
      </tr>
 
    </table>
+   <table class=" table table-bordered table-striped table-hover">
+   <tr>
+	<p>Feedback</p>
+	<div><textarea name="feedback" id= "feedback" placeholder='You can give us feedback here!' class="form-control" rows="4"></textarea></div>
+	</tr>
+	</table>
    <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
    <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'> 
  </form>
- <div id='ratingErrorDiv' style='display:none;'>
+ <div id='ratingErrorDiv' style='display:none;' align="left">
   <br><br>
   <div class="alert alert-danger">
     <strong>Oops!</strong> <p id='ratingErrorMessage'>Please Rate!</p>
+  </div> 
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <div id='ratingSuccessDiv' style='display:none;' align="left">
+    <br><br>
+    <div  class='alert alert-success' >
+      <strong>Success!</strong> Your ratings and feedback are noted </div>
+ 
   </div>
-</div>
+  
 </div>
   <script src="assets/js/jquery.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>

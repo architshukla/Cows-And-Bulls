@@ -11,7 +11,7 @@
 	$filename = $date['mday']."_".$date['mon']."_".$date['year'];
 
 	$handle = fopen("feedback/$filename","a");
-	fwrite($handle, $_SESSION['username']."|".$ratings."|".$feedback."\r\n");
+	fwrite($handle, $_SESSION['username']."|".$ratings."|".$feedback."~DELIM~");
 	fclose($handle);
 
 	echo "success";
