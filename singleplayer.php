@@ -1,5 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<?php  
+    session_start(); 
+    $_SESSION['attempts']=0;
+    $_SESSION['random'] = shell_exec('python scripts/randomwordgenerator.py');
+?>
   <head>
     <title>Single Player Mode | Cows And Bulls</title>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
@@ -38,21 +43,13 @@
     <div class="col-xs-6 col-sm-3 col-md-9 pull-right">
     <div class="container-fixed">
     <div class="jumbotron">
-    <form class="form-inline" role="form">
-      <div class="row form-inline">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b11' onkeyup='shiftFocus(this, "b12")' maxlength="1" name="w1" autofocus>
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b12' onkeyup='shiftFocus(this, "b13")' maxlength="1" name="w2">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b13' onkeyup='shiftFocus(this, "b14")' maxlength="1" name="w3">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b14' onkeyup='shiftFocus(this, "b21")' maxlength="1" name="w4">
+    <form onsubmit="processword(); return false;">
+     <div id="resultset">
       </div>
-      <br>
-      <div class="row">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b21' onkeyup='shiftFocus(this, "b22")' maxlength="1" name="w1">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b22' onkeyup='shiftFocus(this, "b23")' maxlength="1" name="w2">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b23' onkeyup='shiftFocus(this, "b24")' maxlength="1" name="w3">
-        <input type="text" size="1" class='form-control' style='width:10%;' id='b24' maxlength="1" name="w4">
-      </div>
-      </form>
+    <input type="text" maxlength="4" size="4" id='word' class="form-control" placeholder='Guess' />
+    <input type="button" id="submitword" class='btn btn-success' value='Enter' onclick="processword();"/>
+     <br>
+   </form>
       </div>
       </div>
     </div>

@@ -3,8 +3,9 @@ from checker import *
 from validword import *
 
 def main(word,guess):
+	word = word.lower()
+	guess = guess.lower()
 	if check(guess):
-		print "valid"
 		print checker(word,guess)
 	else:
 		print "invalid"

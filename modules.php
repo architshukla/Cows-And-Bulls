@@ -110,7 +110,7 @@ function processword()
   } else {
     
     var result=document.createElement("p");
-    var textnode=document.createTextNode(data);
+    var textnode=document.createTextNode(' '+data);
     result.appendChild(textnode);
 
     var element=document.getElementById("resultset");

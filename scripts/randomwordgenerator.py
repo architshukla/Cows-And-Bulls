@@ -8,7 +8,7 @@ def randomword():
     wordlist=f.read().split()
     wordlistlength = len(wordlist)
     randnum = randrange(0,wordlistlength)
-    return wordlist[randnum]
+    return wordlist[randnum].lower()
 
 if __name__ == '__main__':
 	print randomword()
