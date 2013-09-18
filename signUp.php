@@ -3,7 +3,8 @@
 	$username = strtolower($_POST['username']);
 	$password = $_POST['password'];
 	
-	$con = mysqli_connect('localhost','root','root@123') or die(mysqli_error());
+	require_once("dbAccess.php");
+	// $con = mysqli_connect('localhost','root','root@123') or die(mysqli_error());
 	mysqli_select_db($con,"cowsandbulls") or die(mysqli_error($con));
 	
 	$query = mysqli_query($con,"select * from login where username = \"$username\"");

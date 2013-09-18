@@ -1,0 +1,1 @@
+<?php $con = mysqli_connect('localhost','root','root@123') or die(mysqli_error()); ?>

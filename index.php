@@ -250,7 +250,7 @@
    <table class=" table table-bordered table-striped table-hover">
    <tr>
 	<p>Feedback</p>
-	<div><textarea name="feedback" id= "feedback" class="form-control" rows="4"></textarea></div>
+	<div><textarea name="feedback" id= "feedback" placeholder='You can give us feedback here!' class="form-control" rows="4"></textarea></div>
 	</tr>
 	</table>
    <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
