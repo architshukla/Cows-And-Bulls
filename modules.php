@@ -162,14 +162,28 @@ function processword()
  .done(function(data)
  {
   if(data=="invalid") {
-    document.getElementById('result').innerHTML='Enter a valid word';
-  } else {
+    document.getElementById("message").innerHTML="Enter a valid word";
+  } else if(data=="4B0C"||data=="4B") {
     var result=document.createElement("p");
-    var textnode=document.createTextNode(' '+data);
+    var textnode=document.createTextNode(word+' : 4B');
     result.appendChild(textnode);
 
     var element=document.getElementById("resultset");
     element.appendChild(result);
+    document.getElementById("message").innerHTML="";
+
+    var wordform = document.getElementById("wordform");
+    var textbox = document.getElementById("word");
+     wordform.removeChild(textbox);
+  } else {
+    var result=document.createElement("p");
+    var textnode=document.createTextNode(word+' : '+data);
+    result.appendChild(textnode);
+
+    var element=document.getElementById("resultset");
+    element.appendChild(result);
+    document.getElementById("word").value="";
+    document.getElementById("message").innerHTML="";
 
   }
  });

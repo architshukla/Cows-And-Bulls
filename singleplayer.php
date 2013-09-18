@@ -43,11 +43,10 @@
     <div class="col-xs-6 col-sm-3 col-md-9 pull-right">
     <div class="container-fixed">
     <div class="jumbotron">
-    <form onsubmit="processword(); return false;">
+   <form onsubmit="processword(); return false;" id="wordform">
      <div id="resultset">
       </div>
-    <input type="text" maxlength="4" size="4" id='word' class="form-control" placeholder='Guess' />
-    <input type="button" id="submitword" class='btn btn-success' value='Enter' onclick="processword();"/>
+    <input type="text" maxlength="4" size="4" id='word' class="form-control" placeholder='Guess' /><p id="message"></p>
      <br>
    </form>
       </div>
