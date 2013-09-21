@@ -1,4 +1,6 @@
-  <script type="text/javascript">
+<script src='assets/js/jquery.js' type="text/javascript"></script>
+<script src='assets/js/bootstrap.min.js' type="text/javascript"></script>
+<script type="text/javascript">
    function signInModalBringUp()
    {
     $('#signInModal').modal('toggle');
@@ -161,30 +163,38 @@ function processword()
  $.post("executemain.php", { userword: word})
  .done(function(data)
  {
+  document.getElementById("messageDiv").style.display="none";
   if(data=="invalid") {
     document.getElementById("message").innerHTML="Enter a valid word";
+    if(document.getElementById("messageDiv").className == 'alert alert-warning')
+      document.getElementById("messageDiv").className = 'alert alert-danger';
+    else
+      document.getElementById("messageDiv").className = 'alert alert-warning';
+    document.getElementById("messageDiv").style.display="";
   } else if(data=="4B0C"||data=="4B") {
-    var result=document.createElement("p");
-    var textnode=document.createTextNode(word+' : 4B');
-    result.appendChild(textnode);
+    result.innerHTML = "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>4B</td></tr>";
+    // var textnode=document.createTextNode("<table><tr><td>"+word+'</td> : <td>4B</td></table>');
+    // result.appendChild(textnode);
 
     var element=document.getElementById("resultset");
-    element.appendChild(result);
+    element.innerHTML += "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>4B</td></tr>"
     document.getElementById("message").innerHTML="";
 
     var wordform = document.getElementById("wordform");
     var textbox = document.getElementById("word");
      wordform.removeChild(textbox);
   } else {
-    var result=document.createElement("p");
-    var textnode=document.createTextNode(word+' : '+data);
-    result.appendChild(textnode);
+    // var result=document.createElement("table");
+    // result.className='table table-striped table-hover';
+    // result.style.width='50%';
+    // result.innerHTML = "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>"+data+"</td></tr>";
+    // var textnode=document.createTextNode("<table><tr><td>"+word+'</td><td>'+data+"</td></table>");
+    // result.appendChild(textnode);
 
     var element=document.getElementById("resultset");
-    element.appendChild(result);
+    element.innerHTML += "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>"+data+"</td></tr>";
+    // element.appendChild(result);
     document.getElementById("word").value="";
-    document.getElementById("message").innerHTML="";
-
   }
  });
 }

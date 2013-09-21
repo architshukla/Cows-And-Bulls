@@ -44,19 +44,22 @@
     <div class="container-fixed">
     <div class="jumbotron">
    <form onsubmit="processword(); return false;" id="wordform">
-     <div id="resultset">
-      </div>
-    <input type="text" maxlength="4" size="4" id='word' class="form-control" placeholder='Guess' /><p id="message"></p>
+     <table class='table table-striped table-hover' style='width:75%;' id="resultset" align='center'>
+      </table>
+    <div align='center'>
+    	<input type="text" maxlength="4" style='width:75%;' class='form-control' id='word' placeholder='Guess' autofocus>
+    </div>
+    <br>
+    <div id='messageDiv' style='display:none;' class='alert alert-warning'>
+    <h4><strong> Uh-Oh! </strong></h4>
+    <p id="message"></p>
+    </div>
      <br>
    </form>
       </div>
       </div>
     </div>
     </div>
-   </div> 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
+   </div>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <?php 
-session_start();
-?>
-<?php 
+	session_start();
 	$word = $_POST["userword"];
 	$genword=substr($_SESSION['random'],0,-1);
 	//echo "python scripts/main.py $genword $word";
