@@ -152,6 +152,15 @@ function hideAlert(id)
 {
   document.getElementById(id).style.display="none";
 }
+function giveUp()
+{
+  var button = document.getElementById('giveup');
+  button.value = 'Word is '+<?php echo  $_SESSION['random']; ?>;
+  var wordform = document.getElementById("wordform");
+  var textbox = document.getElementById("word");
+  wordform.removeChild(textbox);
+}
+
 function processword()
 {
   var word = document.getElementById('word').value;
