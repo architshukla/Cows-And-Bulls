@@ -154,11 +154,23 @@ function hideAlert(id)
 }
 function giveUp()
 {
-  var button = document.getElementById('giveup');
-  button.value = 'Word is '+<?php echo  $_SESSION['random']; ?>;
-  var wordform = document.getElementById("wordform");
-  var textbox = document.getElementById("word");
-  wordform.removeChild(textbox);
+  var word = document.getElementById('word').value;
+  // posting for the heck of it
+  $.post("giveup.php", { simplyforthesakeofgiving: word} )
+ .done(function(data)
+ {
+
+    var element=document.getElementById("resultset");
+    element.innerHTML += "<tr><td align='center' style='width:50%;'>"+data+"</td><td align='center'>4B</td></tr>";
+    document.getElementById("message").innerHTML="";
+
+    var button = document.getElementById("giveup");
+    button.value ='You GAVE UP!! :( better luck next time';
+
+    var wordform = document.getElementById("worddiv");
+    var textbox = document.getElementById("word");
+     wordform.removeChild(textbox);
+  });
 }
 
 function processword()
@@ -181,17 +193,24 @@ function processword()
       document.getElementById("messageDiv").className = 'alert alert-warning';
     document.getElementById("messageDiv").style.display="";
   } else if(data=="4B0C"||data=="4B") {
-    result.innerHTML = "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>4B</td></tr>";
+
+    //result.innerHTML = "<tr><td align='center' style='width:50%;'>"+word+"</td><td align='center'>4B</td></tr>";
     // var textnode=document.createTextNode("<table><tr><td>"+word+'</td> : <td>4B</td></table>');
     // result.appendChild(textnode);
 
     var element=document.getElementById("resultset");
-    element.innerHTML += "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>4B</td></tr>"
+    element.innerHTML += "<tr><td align='center' style='width:50%;'>"+word+"</td><td align='center'>4B</td></tr>";
     document.getElementById("message").innerHTML="";
 
-    var wordform = document.getElementById("wordform");
+    var wordiv = document.getElementById("worddiv");
     var textbox = document.getElementById("word");
-     wordform.removeChild(textbox);
+     worddiv.removeChild(textbox);
+
+    var wordform = document.getElementById("wordform");
+    var giveup = document.getElementById("giveup");
+
+    
+    wordform.removeChild(giveup);
   } else {
     // var result=document.createElement("table");
     // result.className='table table-striped table-hover';
@@ -201,7 +220,7 @@ function processword()
     // result.appendChild(textnode);
 
     var element=document.getElementById("resultset");
-    element.innerHTML += "<tr><td align='center' style='width:;50%;'>"+word+"</td><td align='center'>"+data+"</td></tr>";
+    element.innerHTML += "<tr><td align='center' style='width:50%;'>"+word+"</td><td align='center'>"+data+"</td></tr>";
     // element.appendChild(result);
     document.getElementById("word").value="";
   }

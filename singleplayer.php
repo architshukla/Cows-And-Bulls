@@ -6,7 +6,7 @@
     $_SESSION['random'] = shell_exec('python scripts/randomwordgenerator.py');
 ?>
   <head>
-    <title>Single Player Mode | Cows And Bulls</title>
+    <title><?php echo $_SESSION['random'] ?>Single Player Mode | Cows And Bulls</title>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
@@ -46,10 +46,11 @@
    <form onsubmit="processword(); return false;" id="wordform">
      <table class='table table-striped table-hover' style='width:75%;' id="resultset" align='center'>
       </table>
-    <div align='center'>
-    	<input type="text" maxlength="4" style='width:75%;' class='form-control' id='word' placeholder='Guess' autofocus>
+    <div align='center' id="worddiv">
+      <input type="text" maxlength="4" style='width:75%;' class='form-control' id='word' placeholder='Guess' autofocus>
     </div>
     <br>
+        <input type="button" id="giveup" class='btn btn-success' value='Give Up' onclick="giveUp();"/>
     <div id='messageDiv' style='display:none;' class='alert alert-warning'>
     <h4><strong> Uh-Oh! </strong></h4>
     <p id="message"></p>
@@ -61,5 +62,7 @@
     </div>
     </div>
    </div>
+</body>
+</html>  <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>
