@@ -6,7 +6,7 @@
     $_SESSION['random'] = shell_exec('python scripts/randomwordgenerator.py');
 ?>
   <head>
-    <title><?php echo $_SESSION['random'] ?>Single Player Mode | Cows And Bulls</title>
+    <title>Single Player Mode | Cows And Bulls</title>
     <meta content="text/html; charset=utf-8" http-equiv="content-type" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
