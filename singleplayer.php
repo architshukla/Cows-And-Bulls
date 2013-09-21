@@ -51,6 +51,7 @@
     </div>
     <br>
         <input type="button" id="giveup" class='btn btn-success' value='Give Up' onclick="giveUp();"/>
+    <br>
     <div id='messageDiv' style='display:none;' class='alert alert-warning'>
     <h4><strong> Uh-Oh! </strong></h4>
     <p id="message"></p>
