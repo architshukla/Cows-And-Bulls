@@ -1,4 +1,4 @@
 <?php 
 	session_start();
-	echo substr($_SESSION['random'],0,-1);
+	echo substr(strtoupper($_SESSION['random']),0,-1);
 ?>
