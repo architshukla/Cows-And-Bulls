@@ -155,7 +155,7 @@ function hideAlert(id)
 function giveUp()
 {
   var word = document.getElementById('word').value;
-  // posting for the heck of it
+  document.getElementById('messageDiv').style.display="none";
   $.post("giveup.php", { simplyforthesakeofgiving: word} )
  .done(function(data)
  {
@@ -165,7 +165,7 @@ function giveUp()
     document.getElementById("message").innerHTML="";
 
     var button = document.getElementById("giveup");
-    button.value ='You GAVE UP!! :( better luck next time';
+    button.value ='You Gave Up! :( Better Luck Next Time';
 
     var wordform = document.getElementById("worddiv");
     var textbox = document.getElementById("word");

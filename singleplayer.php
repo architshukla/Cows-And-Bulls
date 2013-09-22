@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="assets/css/stylesF.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -51,7 +52,7 @@
     </div>
     <br>
         <input type="button" id="giveup" class='btn btn-success' value='Give Up' onclick="giveUp();"/>
-    <br>
+    <br><br>
     <div id='messageDiv' style='display:none;' class='alert alert-warning'>
     <h4><strong> Uh-Oh! </strong></h4>
     <p id="message"></p>
