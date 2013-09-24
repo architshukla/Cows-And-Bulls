@@ -7,6 +7,16 @@
       </div>
       <div class="modal-body" align='center'>
         <form>
+          <div id='ratingErrorDiv' style='display:none;' align="left">
+            <div class="alert alert-danger">
+              <strong>Oops!</strong> <p id='ratingErrorMessage'>Please Rate!</p>
+            </div> 
+          </div>
+          <div id='ratingSuccessDiv' style='display:none;' align="left">
+            <div class='alert alert-success'>
+              <strong>Success!</strong> Your ratings and feedback are noted
+            </div>
+          </div>
           <table class="table table-bordered table-striped table-hover" style='width:75%;'>
             <tr>
               <th style='width=34%'></th>
@@ -84,16 +94,6 @@
           <input type="button" class='btn btn-info' value='Submit Ratings' onclick='validateRatings()'>
           <input type="reset" class='btn btn-default' value='Clear' onclick='hideAlert("ratingErrorDiv")'> 
         </form>
-        <div id='ratingErrorDiv' style='display:none;' align="left">
-          <div class="alert alert-danger">
-            <strong>Oops!</strong> <p id='ratingErrorMessage'>Please Rate!</p>
-          </div> 
-        </div>
-        <div id='ratingSuccessDiv' style='display:none;' align="left">
-          <div class='alert alert-success'>
-            <strong>Success!</strong> Your ratings and feedback are noted
-          </div>
-        </div>
       </div>
     </div>
   </div>

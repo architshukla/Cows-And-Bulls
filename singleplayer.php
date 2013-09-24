@@ -65,6 +65,4 @@
     </div>
    </div>
 </body>
-</html>  <script src="assets/js/bootstrap.min.js"></script>
-</body>
 </html>
