@@ -28,3 +28,10 @@
   </div>
 </div>
 </div>
+<?php
+  // Ratings
+  require_once("ratings.php");
+  // About
+  require_once("about.php");
+?>
+
