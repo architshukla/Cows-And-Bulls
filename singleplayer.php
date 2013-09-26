@@ -36,7 +36,7 @@
         <section>
         <img src="prfpics/pic.png" class="img-responsive" alt="Responsive image">
         <br>
-        <p><?php echo $_SESSION['username']; ?><b> [Userclass]</b></p>
+        <p><span class='glyphicon glyphicon-user'></span>&nbsp;<?php echo $_SESSION['username']; ?><b> [Userclass]</b></p>
         </section>
         <ul class="nav">
           <li>Achievments</li>
