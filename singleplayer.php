@@ -1,7 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <?php  
-    session_start(); 
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+    	header("Location: index.php");
+    	return;
+    }
     $_SESSION['attempts']=0;
     $_SESSION['random'] = shell_exec('python scripts/randomwordgenerator.py');
 ?>
@@ -31,7 +36,7 @@
         <section>
         <img src="prfpics/pic.png" class="img-responsive" alt="Responsive image">
         <br>
-        <p>Username<b> [Userclass]</b></p>
+        <p><?php echo $_SESSION['username']; ?><b> [Userclass]</b></p>
         </section>
         <ul class="nav">
           <li>Achievments</li>

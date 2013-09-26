@@ -9,14 +9,16 @@
   <!-- Custom Styles -->
   <link href="assets/css/styles.css" rel="stylesheet" media="screen">
   <!-- Java Script Functions -->
-  <?php  require_once('modules.php') ?>
+  <?php  
+    session_start();
+    require_once('modules.php') ?>
 
 </head>
 <body>
   <!-- Carousel -->
   <div id="carousel-example-generic" class="carousel slide">
     <!-- Navbar -->
-    <?php  require_once('navbar.php') ?>
+    <?php  require('navbar.php') ?>
 
     <!-- Indicators -->
     <?php  require_once('indicators.php') ?>

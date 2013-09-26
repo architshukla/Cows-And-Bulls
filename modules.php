@@ -137,7 +137,7 @@ function validateSignIn()
   {	
     if(data == 'success')
     {
-      window.location="";
+      window.location="singleplayer.php";
     }
     else
     {
