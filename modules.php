@@ -226,7 +226,7 @@ function shiftFocus(myid, nextId)
 
 function signOut()
 {
-  $.post("signout.php", {})
+  $.post("signOut.php", {})
   .done(function(data)
   {
     window.location='index.php'
