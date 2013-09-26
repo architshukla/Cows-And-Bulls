@@ -15,6 +15,7 @@
 		$hashedPassword = hash("md5",$password);
 		if(!mysqli_query($con,"insert into login values ('$username','$hashedPassword')"))
 			die(mysqli_error($con));
+		$_SESSION['username'] = $username;
 		echo "success";	
 	}
 	else

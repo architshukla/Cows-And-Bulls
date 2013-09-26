@@ -13,10 +13,10 @@
        </div>
        <div class="navbar-collapse collapse">
          <ul class="nav navbar-nav">
-           <li class="active"><a href="index.php"><span class='glyphicon glyphicon-home'></span>&nbsp;Home</a></li>
-           <li><a href="#aboutModal" data-toggle="modal"><span class='glyphicon glyphicon-info-sign'></span>&nbsp;About</a></li>
-           <li><a href="#ratingModal" data-toggle="modal"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;Rate Us!</a></li>
-           <li><a href="https://github.com/architshukla/Cows-And-Bulls"><span class='glyphicon glyphicon-cutlery'></span>&nbsp;Fork Us!</a></li>
+           <li class="active"><a href="index.php"><span class='glyphicon glyphicon-home'></span>&nbsp;<strong>Home</strong></a></li>
+           <li><a href="#aboutModal" data-toggle="modal"><span class='glyphicon glyphicon-info-sign'></span>&nbsp;<strong>About</strong></a></li>
+           <li><a href="#ratingModal" data-toggle="modal"><span class='glyphicon glyphicon-thumbs-up'></span>&nbsp;<strong>Rate Us!</strong></a></li>
+           <li><a href="https://github.com/architshukla/Cows-And-Bulls"><span class='glyphicon glyphicon-cutlery'></span>&nbsp;<strong>Fork Us!</strong></a></li>
          </ul>
          <ul class="nav navbar-nav navbar-right">
           <?php 
@@ -25,7 +25,7 @@
             echo "&nbsp;
             <button class='btn btn-info navbar-btn' onclick='signUpModalBringUp()'><span class='glyphicon glyphicon-edit'></span>&nbsp;Sign Up!</button>
             &nbsp;
-            <button class='btn btn-success navbar-btn' onclick='signInModalBringUp()'><span class='glyphicon glyphicon-log-out'></span>&nbsp;Sign In</button>";        
+            <button class='btn btn-success navbar-btn' onclick='signInModalBringUp()'><span class='glyphicon glyphicon-log-in'></span>&nbsp;Sign In</button>";        
           }
           else
           {
