@@ -157,6 +157,7 @@ function giveUp()
 {
   var word = document.getElementById('word').value;
   document.getElementById('messageDiv').style.display="none";
+  document.getElementById('submit').style.display="none";
   $.post("giveup.php", { simplyforthesakeofgiving: word} )
   .done(function(data)
   {
