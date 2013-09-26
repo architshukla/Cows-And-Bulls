@@ -29,9 +29,9 @@
     <div class="col-xs-6 col-sm-6 col-md-3 sidebar-offcanvas" id="sidebar" data-toggle="collapse" role="navigation">
       <div class="well sidebar-nav">
         <section>
-        <img src="prfpics/ravikiran.jpg" class="img-responsive" alt="Responsive image">
+        <img src="prfpics/pic.png" class="img-responsive" alt="Responsive image">
         <br>
-        <p>Ravi Kiran<b>[Newbie]</b></p>
+        <p>Username<b> [Userclass]</b></p>
         </section>
         <ul class="nav">
           <li>Achievments</li>
@@ -49,10 +49,11 @@
       </table>
     <div align='center' id="worddiv">
       <input type="text" maxlength="4" style='width:75%;' class='form-control' id='word' placeholder='Guess' autofocus>
-    </div>
     <br>
-        <input type="button" id="giveup" class='btn btn-success' value='Give Up' onclick="giveUp();"/>
+        <input type="button" id="giveup" style='width:37.5%;' class='btn btn-success' value='Give Up' onclick="giveUp();"/>
+        <input type="submit" id="submit" style='width:37.5%;' class='btn btn-danger' value='Submit' />
     <br><br>
+    </div>
     <div id='messageDiv' style='display:none;' class='alert alert-warning'>
     <h4><strong> Uh-Oh! </strong></h4>
     <p id="message"></p>
