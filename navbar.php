@@ -30,6 +30,7 @@
           else
           {
             echo "&nbsp;<button class='btn btn-success navbar-btn' onclick=''>Hi there, ".$_SESSION['username']."!</button>";
+            echo "&nbsp;<button class='btn btn-danger navbar-btn' onclick='signOut()'>Sign Out</button>";
           }
           ?>
         </ul>

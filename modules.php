@@ -224,6 +224,15 @@ function shiftFocus(myid, nextId)
   document.getElementById(nextId).focus();
 }
 
+function signOut()
+{
+  $.post("signout.php", {})
+  .done(function(data)
+  {
+    window.location='index.php'
+  });
+}
+
 $("#word").keyup(function(event){
   if(event.keyCode == 13){
     $("#submitword").click();
