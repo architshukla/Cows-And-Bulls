@@ -50,8 +50,8 @@
     <div align='center' id="worddiv">
       <input type="text" maxlength="4" style='width:75%;' class='form-control' id='word' placeholder='Guess' autofocus>
     <br>
-        <input type="button" id="giveup" style='width:37.5%;' class='btn btn-success' value='Give Up' onclick="giveUp();"/>
-        <input type="submit" id="submit" style='width:37.5%;' class='btn btn-danger' value='Submit' />
+        <input type="button" id="giveup" style='width:37.5%;' class='btn btn-danger' value='Give Up' onclick="giveUp();"/>
+        <input type="submit" id="submit" style='width:37.5%;' class='btn btn-success' value='Submit' />
     <br><br>
     </div>
     <div id='messageDiv' style='display:none;' class='alert alert-warning'>
